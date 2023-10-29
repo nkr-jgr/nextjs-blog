@@ -25,3 +25,37 @@ img {
   max-width: 100%;
   display: block;
 }
+
+.swiper-button-next {
+  right: -10px;
+}
+
+.swiper-button-prev {
+  left: -10px;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  text-align: center;
+}
+
+.centered-container {
+  text-align: center;
+  /* Optionally center the content within the container */
+}
+
+.about-me-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+  text-align: justify;
+}
+
+.sticky-me {
+  display: contents;
+  position: sticky;
+}

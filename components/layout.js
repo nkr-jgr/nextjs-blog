@@ -5,14 +5,14 @@ import Link from 'next/link';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 
-const name = 'Your Name';
-export const siteTitle = 'Next.js Sample Website';
+const name = 'Naresh Pahariya';
+export const siteTitle = 'Naresh Pahariya | Home';
 
 export default function Layout({children, home}) {
     return (
         <div className={styles.container}>
             <Head>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/personal.jpg" />
                 <meta
                     name="description"
                     content="Learn how to build a personal website using Next.js"
@@ -28,17 +28,17 @@ export default function Layout({children, home}) {
             </Head>
             <header className={styles.header}>
             {home ? (
-                <>
+                <div className='sticky-me'>
                 <Image
                     priority
                     src="/images/profile.jpeg"
                     className={utilStyles.borderCircle}
-                    height={144}
-                    width={144}
+                    height={108}
+                    width={108}
                     alt=""
                 />
-                <h1 className={utilStyles.heading2Xl}>{name}</h1>
-                </>
+                <h2 className={utilStyles.headingXl}>{name}</h2>
+                </div>
             ) : (
                 <>
                 <Link href="/">
