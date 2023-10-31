@@ -3,6 +3,7 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
+import Script from 'next/script';
 import Date from '../components/date';
 import React from 'react';
 import Carousel from '../components/Carousel.js';
@@ -64,7 +65,7 @@ export default function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <h5>Work Experience</h5>
         <p className='about-me-text'>
-        Became a part of a well-established corporation, working within substantial teams, but found that the responsibilities
+          Became a part of a well-established corporation, working within substantial teams, but found that the responsibilities
           and job satisfaction fell short of my expectations. Subsequently, I opted for a career break lasting
           nearly a year. Ultimately, I decided to focus on further enhancing my skills in software engineering.
         </p>
@@ -92,6 +93,13 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
+      {/* <!-- Cloudflare Web Analytics --> */}
+      <Script
+        defer
+        src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "4c331686d171474d88f2d28b85f170e2", "spa": true}'
+      ></Script>
+      {/* <!-- End Cloudflare Web Analytics --> */}
     </Layout>
   );
 }
