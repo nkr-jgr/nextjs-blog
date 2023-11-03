@@ -52,6 +52,17 @@ export default function Home({ allPostsData }) {
         <div className='centered-container'>
           <Carousel items={myQuotes} is_navigation={false} delay={1500} />
         </div>
+        <p className='about-me-text'>
+        🚀 "Do a little more each day than you think you possibly can." - Lowell Thomas 🚀
+
+This quote has been my guiding light in all aspects of life – academics, personal growth, and my professional journey. Striving for excellence is not just a goal, it's a way of life for me.
+
+📚 In academia, I challenge myself to push beyond boundaries, constantly expanding my knowledge and honing my skills.
+
+💼 Professionally, I go the extra mile to ensure every project I undertake is a testament to my commitment to excellence.
+
+🌱 Personally, I believe in growth that knows no limits, embracing challenges that help me surpass my own expectations.
+        </p>
         <h5>Education</h5>
         <p className='about-me-text'>
           Initiating my educational journey at the age of 3,
