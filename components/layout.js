@@ -1,15 +1,34 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { MoonIcon } from '../icons/MoonIcon';
+import React from 'react';
+import { useState } from 'react';
+import { Navbar, NavbarContent, NavbarMenuToggle, NavbarBrand, NavbarMenu, NavbarMenuItem, NavbarItem } from '@nextui-org/react';
+import { Link } from '@nextui-org/react';
 
 const name = 'Naresh Pahariya';
 export const siteTitle = 'Naresh Pahariya | Home';
 
-export default function Layout({children, home}) {
+const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Log Out",
+];
+
+export default function Layout({ children, home }) {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
     return (
         <div className={styles.container}>
             <Head>
@@ -27,46 +46,96 @@ export default function Layout({children, home}) {
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <header className={styles.header}>
-            {home ? (
-                <div className='sticky-me'>
-                <Image
-                    priority
-                    src="/images/profile.jpeg"
-                    className={utilStyles.borderCircle}
-                    height={108}
-                    width={108}
-                    alt=""
-                />
-                <h2 className={utilStyles.headingXl}>{name}</h2>
-                </div>
-            ) : (
-                <>
-                <Link href="/">
-                    <Image
-                    priority
-                    src="/images/profile.jpeg"
-                    className={utilStyles.borderCircle}
-                    height={108}
-                    width={108}
-                    alt=""
+            <Navbar onMenuOpenChange={setIsMenuOpen}>
+                <NavbarContent>
+                    <NavbarMenuToggle
+                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                        className="sm:hidden"
                     />
-                </Link>
-                <h2 className={utilStyles.headingLg}>
-                    <Link href="/" className={utilStyles.colorInherit}>
-                    {name}
-                    </Link>
-                </h2>
-                </>
-            )}
+                    <NavbarBrand>
+                        <p className=" font-black text-inherit">
+                            np
+                        </p>
+                    </NavbarBrand>
+                </NavbarContent>
+                <NavbarContent className='hidden sm:flex gap-unit-lg' justify='end'>
+                    <NavbarItem>
+                        <Link color="foreground" href="#">
+                            Dispatches
+                        </Link>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <Link color="foreground" href="#">
+                            Insights
+                        </Link>
+                    </NavbarItem>
+                    <ThemeSwitcher />
+                </NavbarContent>
+                <NavbarContent className='full-flex sm:hidden' justify='end'>
+                    <ThemeSwitcher />
+                </NavbarContent>
+                <NavbarMenu>
+                    {menuItems.map((item, index) => (
+                        <NavbarMenuItem key={`${item}-${index}`}>
+                            <Link
+                                color={
+                                    index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                                }
+                                className="w-full"
+                                href="#"
+                                size="lg"
+                            >
+                                {item}
+                            </Link>
+                        </NavbarMenuItem>
+                    ))}
+                </NavbarMenu>
+            </Navbar>
+            <header className={styles.header}>
+                {home ? (
+                    <div className='sticky-me'>
+                        <Image
+                            priority
+                            src="/images/profile.jpeg"
+                            className={utilStyles.borderCircle}
+                            height={143}
+                            width={143}
+                            alt=""
+                        />
+                        <h2 className={utilStyles.headingXl}>{name}</h2>
+                    </div>
+                ) : (
+                    <>
+                        <Link href="/">
+                            <Image
+                                priority
+                                src="/images/profile.jpeg"
+                                className={utilStyles.borderCircle}
+                                height={143}
+                                width={143}
+                                alt=""
+                            />
+                        </Link>
+                        <h2 className={utilStyles.headingLg}>
+                            <Link href="/" className={utilStyles.colorInherit}>
+                                {name}
+                            </Link>
+                        </h2>
+                    </>
+                )}
             </header>
             <main>{children}</main>
             {!home && (
                 <div className={styles.backToHome}>
-                <Link href="/">← Back to home</Link>
+                    <Link href="/">← Back to home</Link>
                 </div>
             )}
-            <ThemeSwitcher />
-        </div>
+            <>
+                <hr />
+                <footer className='text-center py-unit-md' justify='center'>
+                Made with 💖 in India
+                </footer>
+            </>
+        </div >
     );
 }

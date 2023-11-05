@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
-import {Link} from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
 import Script from 'next/script';
 import Date from '../components/date';
 import React from 'react';
@@ -63,12 +63,10 @@ export default function Home({ allPostsData }) {
           <Carousel items={myQuotes} is_navigation={false} delay={1500} />
         </div>
         {/* <h6 style={{color:"red"}}>In development mode.. </h6> */}
-        <p className='py-unit-10 font-extralight text-center'>🚀 "Do a little more each day than you think you possibly can." - Lowell Thomas 🚀 </p>
-        <ui className='font-light text-success-foreground text-medium text-indent list-none indent-5'>
-<li className='py-unit-sm'> 💬 This quote has been my guiding light in all aspects of life – academics, personal growth, and my professional journey. Striving for excellence is not just a goal, it's a way of life for me.</li>
-<li className='py-unit-sm'>
-🌱 Personally, I believe in growth that knows no limits, embracing challenges that help me surpass my own expectations.
-        </li>
+        <ui className='font-light text-center text-medium text-indent list-none indent-5 py-unit-20'>
+          <li className='py-unit-sm'>
+            🌱 Personally, I believe in growth that knows no limits, embracing challenges that help me surpass my own expectations.
+          </li>
         </ui>
         <AboutMeSection
           title='Academics'
@@ -82,20 +80,7 @@ export default function Home({ allPostsData }) {
           items={items}
           endingNote='💼 Professionally, I go the extra mile to ensure every project I undertake is a testament to my commitment to excellence.'
         />
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul>
-          {allPostsData.map(({ id, date, title }) => (
-            <li key={id}>
-              <Link href={`/posts/${id}`} size='md' color="foreground">{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+        <p className='py-unit-10 font-extralight text-center'>🚀 "Do a little more each day than you think you possibly can." - Lowell Thomas 🚀 </p>
       </section>
       {/* <!-- Cloudflare Web Analytics --> */}
       <Script
