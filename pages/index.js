@@ -7,6 +7,7 @@ import Script from 'next/script';
 import Date from '../components/date';
 import React from 'react';
 import Carousel from '../components/Carousel.js';
+import AboutMeSection from '../components/AboutMeSection.jsx';
 
 const items = [
   {
@@ -23,6 +24,15 @@ const items = [
   },
   // Add more items as needed
 ];
+
+const educationalParagraphs = [
+  'Initiating my educational journey at the age of 3, I consistently upheld my position as a top-performing student throughout my school days. I was regularly honored with tokens of recognition, particularly in the fields of mathematics and science.',
+]
+
+const careerParagraphs = [
+  'Became a part of a well-established corporation, working within substantial teams, but found that the responsibilities and job satisfaction fell short of my expectations. Subsequently, I opted for a career break lasting nearly a year. Ultimately, I decided to focus on further enhancing my skills in software engineering.',
+  'In 2019, I joined a startup and quickly found myself drawn to the dynamic culture it offered. What truly excites me is the process of building software, assuming responsibility and ownership, and making significant contributions across the entire organization. Over the past four years, I have had the opportunity to make substantial contributions to products during their early stages, often working with smaller teams.'
+]
 
 const myQuotes = [
   {
@@ -52,46 +62,26 @@ export default function Home({ allPostsData }) {
         <div className='centered-container'>
           <Carousel items={myQuotes} is_navigation={false} delay={1500} />
         </div>
-        <h6 style={{color:"red"}}>In development mode.. </h6>
+        {/* <h6 style={{color:"red"}}>In development mode.. </h6> */}
         <p className='py-unit-10 font-extralight text-center'>🚀 "Do a little more each day than you think you possibly can." - Lowell Thomas 🚀 </p>
         <ui className='font-light text-success-foreground text-medium text-indent list-none indent-5'>
 <li className='py-unit-sm'> 💬 This quote has been my guiding light in all aspects of life – academics, personal growth, and my professional journey. Striving for excellence is not just a goal, it's a way of life for me.</li>
 <li className='py-unit-sm'>
-📚 In academia, I challenge myself to push beyond boundaries, constantly expanding my knowledge and honing my skills.
-</li>
-<li className='py-unit-sm'>
-💼 Professionally, I go the extra mile to ensure every project I undertake is a testament to my commitment to excellence.
-</li>
-<li className='py-unit-sm'>
 🌱 Personally, I believe in growth that knows no limits, embracing challenges that help me surpass my own expectations.
         </li>
         </ui>
-        <h3 className='underline py-unit-lg'>Education</h3>
-        <p>
-          Initiating my educational journey at the age of 3,
-          I consistently upheld my position as a top-performing student
-          throughout my school days. I was regularly honored with tokens
-          of recognition, particularly in the fields of mathematics and science.</p>
-        <div className='carousel-container'>
-          <Carousel items={items} is_navigation={true} delay={5000} />
-        </div>
-      </section>
-      <section className={utilStyles.headingMd}>
-        <h5>Work Experience</h5>
-        <p>
-          Became a part of a well-established corporation, working within substantial teams, but found that the responsibilities
-          and job satisfaction fell short of my expectations. Subsequently, I opted for a career break lasting
-          nearly a year. Ultimately, I decided to focus on further enhancing my skills in software engineering.
-        </p>
-        <p>
-          In 2019, I joined a startup and quickly found myself drawn to the dynamic culture it offered. What truly excites
-          me is the process of building software, assuming responsibility and ownership, and making significant contributions
-          across the entire organization. Over the past four years, I have had the opportunity to make substantial
-          contributions to products during their early stages, often working with smaller teams.
-        </p>
-        <div className='carousel-container'>
-          <Carousel items={items} is_navigation={true} delay={5000} />
-        </div>
+        <AboutMeSection
+          title='Academics'
+          paragraphs={educationalParagraphs}
+          items={items}
+          endingNote='📚 In academia, I challenge myself to push beyond boundaries, constantly expanding my knowledge and honing my skills.'
+        />
+        <AboutMeSection
+          title='Career'
+          paragraphs={careerParagraphs}
+          items={items}
+          endingNote='💼 Professionally, I go the extra mile to ensure every project I undertake is a testament to my commitment to excellence.'
+        />
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
