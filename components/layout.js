@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 const name = 'Naresh Pahariya';
 export const siteTitle = 'Naresh Pahariya | Home';
@@ -65,6 +66,7 @@ export default function Layout({children, home}) {
                 <Link href="/">← Back to home</Link>
                 </div>
             )}
+            <ThemeSwitcher />
         </div>
     );
 }
