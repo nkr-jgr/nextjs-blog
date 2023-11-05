@@ -20,7 +20,21 @@ module.exports = {
       addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").
       defaultTheme: "light", // default theme from the themes object
       defaultExtendTheme: "light", // default theme to extend on custom themes
-      layout: {}, // common layout tokens (applied to all themes)
+      layout: {
+        spacingUnit: 4,
+        fontSize: {
+          tiny: "0.75rem", // text-tiny
+          small: "0.875rem", // text-small
+          medium: "1rem", // text-medium
+          large: "1.125rem", // text-large
+        },
+        lineHeight: {
+          tiny: "1rem", // text-tiny
+          small: "1.25rem", // text-small
+          medium: "1.5rem", // text-medium
+          large: "1.75rem", // text-large
+        },
+      }, // common layout tokens (applied to all themes)
       themes: {
         dark: {
           layout: {
@@ -37,23 +51,23 @@ module.exports = {
             },
           },
           colors: {
-            background: "#0D001A",
-            foreground: "#ffffff",
+            background: "#333333", // Dark background
+            foreground: "#FFFFFF",  // Light foreground text
             primary: {
-              50: "#3B096C",
-              100: "#520F83",
-              200: "#7318A2",
-              300: "#9823C2",
-              400: "#c031e2",
-              500: "#DD62ED",
-              600: "#F182F6",
-              700: "#FCADF9",
-              800: "#FDD5F9",
-              900: "#FEECFE",
-              DEFAULT: "#DD62ED",
-              foreground: "#ffffff",
+              50: "#292929",
+              100: "#262626",
+              200: "#202020",
+              300: "#1C1C1C",
+              400: "#181818",
+              500: "#151515",
+              600: "#121212",
+              700: "#0E0E0E",
+              800: "#0B0B0B",
+              900: "#080808",
+              DEFAULT: "#151515",
+              foreground: "#FFFFFF",
             },
-            focus: "#F182F6",
+            focus: "#007AFF",
           },
         },
         light: {
@@ -71,23 +85,23 @@ module.exports = {
             },
           },
           colors: {
-            background: "#F182F6",
-            foreground: "#0D001A",
+            background: "#ECECEC",
+            foreground: "#333333",
             primary: {
-              50: "#3B096C",
-              100: "#520F83",
-              200: "#7318A2",
-              300: "#9823C2",
-              400: "#c031e2",
-              500: "#DD62ED",
-              600: "#F182F6",
-              700: "#FCADF9",
-              800: "#FDD5F9",
-              900: "#FEECFE",
-              DEFAULT: "#DD62ED",
-              foreground: "#FEECFE",
+              50: "#C6C6C6",
+              100: "#B9B9B9",
+              200: "#ACACAC",
+              300: "#9F9F9F",
+              400: "#929292",
+              500: "#858585",
+              600: "#787878",
+              700: "#6B6B6B",
+              800: "#5E5E5E",
+              900: "#515151",
+              DEFAULT: "#858585",
+              foreground: "#333333",
             },
-            focus: "#F182F6",
+            focus: "#FF9500",
           },
         },
       },
