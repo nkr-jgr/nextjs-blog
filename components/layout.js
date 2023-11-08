@@ -8,22 +8,14 @@ import { MoonIcon } from '../icons/MoonIcon';
 import React from 'react';
 import { useState } from 'react';
 import { Navbar, NavbarContent, NavbarMenuToggle, NavbarBrand, NavbarMenu, NavbarMenuItem, NavbarItem } from '@nextui-org/react';
-import { Link } from '@nextui-org/react';
+import { Avatar, Link } from '@nextui-org/react';
 
 const name = 'Naresh Pahariya';
 export const siteTitle = 'Naresh Pahariya | Home';
 
 const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "Dispatches",
+    "Insights"
 ];
 
 export default function Layout({ children, home }) {
@@ -35,7 +27,7 @@ export default function Layout({ children, home }) {
                 <link rel="icon" href="/personal.jpg" />
                 <meta
                     name="description"
-                    content="Learn how to build a personal website using Next.js"
+                    content="Naresh Pahariya"
                 />
                 <meta
                     property="og:image"
@@ -53,9 +45,12 @@ export default function Layout({ children, home }) {
                         className="sm:hidden"
                     />
                     <NavbarBrand>
-                        <p className=" font-black text-inherit">
-                            np
-                        </p>
+                        <Link href='#'>
+                            <Avatar
+                                isBordered
+                                src="/images/profile.jpeg"
+                            />
+                        </Link>
                     </NavbarBrand>
                 </NavbarContent>
                 <NavbarContent className='hidden sm:flex gap-unit-lg' justify='end'>
@@ -133,7 +128,7 @@ export default function Layout({ children, home }) {
             <>
                 <hr />
                 <footer className='text-center py-unit-md' justify='center'>
-                Made with 💖 in India
+                    Made with 💖 in India
                 </footer>
             </>
         </div >
