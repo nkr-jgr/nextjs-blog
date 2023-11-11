@@ -9,13 +9,26 @@ import React from 'react';
 import { useState } from 'react';
 import { Navbar, NavbarContent, NavbarMenuToggle, NavbarBrand, NavbarMenu, NavbarMenuItem, NavbarItem } from '@nextui-org/react';
 import { Avatar, Link } from '@nextui-org/react';
+import {
+    LinkedinIcon,
+    TwitterIcon,
+    EmailIcon,
+    FacebookIcon,
+    InstagramIcon
+} from 'next-share';
 
 const name = 'Naresh Pahariya';
 export const siteTitle = 'Naresh Pahariya | Home';
 
+const imageStyle = {
+    borderRadius: '50%',
+    border: '1px dashed',
+    'box-shadow': "0px 5px 10px 0px rgba(0, 0, 0, 0.5)"
+}
+
 const menuItems = [
     "Dispatches",
-    "Insights"
+    "Insights",
 ];
 
 export default function Layout({ children, home }) {
@@ -31,9 +44,7 @@ export default function Layout({ children, home }) {
                 />
                 <meta
                     property="og:image"
-                    content={`https://og-image.vercel.app/${encodeURI(
-                        siteTitle,
-                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+                    content={`https://nareshpahariya.me/images/profilepic.jpg`}
                 />
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
@@ -48,7 +59,7 @@ export default function Layout({ children, home }) {
                         <Link href='#'>
                             <Avatar
                                 isBordered
-                                src="/images/profile.jpeg"
+                                src="/images/profilepic.jpg"
                             />
                         </Link>
                     </NavbarBrand>
@@ -74,7 +85,8 @@ export default function Layout({ children, home }) {
                         <NavbarMenuItem key={`${item}-${index}`}>
                             <Link
                                 color={
-                                    index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                                    "primary"
+                                    // index === 0 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
                                 }
                                 className="w-full"
                                 href="#"
@@ -91,24 +103,28 @@ export default function Layout({ children, home }) {
                     <div className='sticky-me'>
                         <Image
                             priority
-                            src="/images/profile.jpeg"
+                            src="/images/profilepic.jpg"
                             className={utilStyles.borderCircle}
                             height={143}
                             width={143}
                             alt=""
+                            style={imageStyle}
                         />
-                        <h2 className={utilStyles.headingXl}>{name}</h2>
+                        <div className='text-center' justify='center'>
+                            <h2 className={utilStyles.headingXl}>{name}</h2>
+                        </div>
                     </div>
                 ) : (
                     <>
                         <Link href="/">
                             <Image
                                 priority
-                                src="/images/profile.jpeg"
+                                src="/images/profilepic.jpg"
                                 className={utilStyles.borderCircle}
                                 height={143}
                                 width={143}
                                 alt=""
+                                style={imageStyle}
                             />
                         </Link>
                         <h2 className={utilStyles.headingLg}>
@@ -118,13 +134,60 @@ export default function Layout({ children, home }) {
                         </h2>
                     </>
                 )}
-            </header>
+            </header >
             <main>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">← Back to home</Link>
-                </div>
-            )}
+            {
+                !home && (
+                    <div className={styles.backToHome}>
+                        <Link href="/">← Back to home</Link>
+                    </div>
+                )
+            }
+            <div className='text-center'>
+                <span className='px-unit-xs'>
+                    <Link
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={'https://twitter.com/nkr_jgr'}>
+                        <TwitterIcon size={32} round />
+                    </Link>
+                    {/* </TwitterShareButton> */}
+                </span>
+                <span className='px-unit-xs'>
+                    <Link
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={'https://linkedin.com/in/nareshpahariya'}>
+                        <LinkedinIcon size={32} round />
+                    </Link>
+                </span>
+                <span className='px-unit-xs'>
+                    <Link
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={'mailto:mail@nareshpahariya.me'}>
+                        <EmailIcon size={32} round />
+                    </Link>
+                </span>
+                <span className='px-unit-xs'>
+                    <Link
+                        rel="noopener noreferrer"
+                        target='_blank'
+                        href={'http://facebook.com/nkr.jgr'}
+                    >
+                        <FacebookIcon size={32} round />
+                    </Link>
+                </span>
+                <span className='px-unit-xs'>
+                    <Link
+                        rel="noopener noreferrer"
+                        target='_blank'
+                        href={'http://instagram.com/nkr.jgr'}
+                    >
+                        <InstagramIcon size={32} round />
+                    </Link>
+                </span>
+            </div>
             <>
                 <hr />
                 <footer className='text-center py-unit-md' justify='center'>

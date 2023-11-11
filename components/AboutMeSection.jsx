@@ -13,9 +13,9 @@ const AboutMeSection = ({title, paragraphs, items, endingNote}) => {
                     {endingNote}
                 </li>
             </ui>
-            <div className='carousel-container'>
+            {/* <div className='carousel-container'>
                 <Carousel items={items} is_navigation={true} delay={5000} />
-            </div>
+            </div> */}
         </div>
     );
 }
