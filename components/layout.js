@@ -67,12 +67,12 @@ export default function Layout({ children, home }) {
                 </NavbarContent>
                 <NavbarContent className='hidden sm:flex gap-unit-lg' justify='end'>
                     <NavbarItem>
-                        <Link color="foreground" href="#">
+                        <Link color="foreground" href="dispatches">
                             Dispatches
                         </Link>
                     </NavbarItem>
                     <NavbarItem>
-                        <Link color="foreground" href="#">
+                        <Link color="foreground" href="insights">
                             Insights
                         </Link>
                     </NavbarItem>
