@@ -82,13 +82,6 @@ export default function Home({ allPostsData }) {
         />
         <p className='py-unit-10 font-extralight text-center'>🚀 "Do a little more each day than you think you possibly can." - Lowell Thomas 🚀 </p>
       </section>
-      {/* <!-- Cloudflare Web Analytics --> */}
-      <Script
-        defer
-        src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "4c331686d171474d88f2d28b85f170e2", "spa": true}'
-      ></Script>
-      {/* <!-- End Cloudflare Web Analytics --> */}
     </Layout>
   );
 }

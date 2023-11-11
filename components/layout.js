@@ -9,6 +9,8 @@ import React from 'react';
 import { useState } from 'react';
 import { Navbar, NavbarContent, NavbarMenuToggle, NavbarBrand, NavbarMenu, NavbarMenuItem, NavbarItem } from '@nextui-org/react';
 import { Avatar, Link } from '@nextui-org/react';
+import Script from 'next/script';
+
 import {
     LinkedinIcon,
     TwitterIcon,
@@ -57,7 +59,7 @@ export default function Layout({ children, home }) {
                         className="sm:hidden"
                     />
                     <NavbarBrand>
-                        <Link href='#'>
+                        <Link href={home ? '#' : '/'}>
                             <Avatar
                                 isBordered
                                 src="/images/profilepic.jpg"
@@ -67,11 +69,11 @@ export default function Layout({ children, home }) {
                 </NavbarContent>
                 <NavbarContent className='hidden sm:flex gap-unit-lg' justify='end'>
                     <NavbarItem>
-                        <Link color="foreground" href="dispatches">
+                        <Link color="foreground" href="https://nareshpahariya.substack.com/">
                             Dispatches
                         </Link>
                     </NavbarItem>
-                    <NavbarItem>
+                    <NavbarItem isActive={home ? false : true}>
                         <Link color="foreground" href="insights">
                             Insights
                         </Link>
@@ -89,7 +91,7 @@ export default function Layout({ children, home }) {
                                     "foreground" // === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
                                 }
                                 className="w-full"
-                                href={`${item.toLowerCase()}`}
+                                href={index === 0 ? 'https://nareshpahariya.substack.com/' : `${item.toLowerCase()}`}
                                 size="lg"
                             >
                                 {item}
@@ -114,26 +116,7 @@ export default function Layout({ children, home }) {
                             <h2 className={utilStyles.headingXl}>{name}</h2>
                         </div>
                     </div>
-                ) : (
-                    <>
-                        <Link href="/">
-                            <Image
-                                priority
-                                src="/images/profilepic.jpg"
-                                className={utilStyles.borderCircle}
-                                height={143}
-                                width={143}
-                                alt=""
-                                style={imageStyle}
-                            />
-                        </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/" className={utilStyles.colorInherit}>
-                                {name}
-                            </Link>
-                        </h2>
-                    </>
-                )}
+                ) : (<></>)}
             </header >
             <main>{children}</main>
             {
@@ -143,57 +126,61 @@ export default function Layout({ children, home }) {
                     </div>
                 )
             }
-            <div className='text-center'>
-                <span className='px-unit-xs'>
-                    <Link
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href={'https://twitter.com/nkr_jgr'}>
-                        <TwitterIcon size={32} round />
-                    </Link>
-                    {/* </TwitterShareButton> */}
-                </span>
-                <span className='px-unit-xs'>
-                    <Link
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href={'https://linkedin.com/in/nareshpahariya'}>
-                        <LinkedinIcon size={32} round />
-                    </Link>
-                </span>
-                <span className='px-unit-xs'>
-                    <Link
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href={'mailto:mail@nareshpahariya.me'}>
-                        <EmailIcon size={32} round />
-                    </Link>
-                </span>
-                <span className='px-unit-xs'>
-                    <Link
-                        rel="noopener noreferrer"
-                        target='_blank'
-                        href={'http://facebook.com/nkr.jgr'}
-                    >
-                        <FacebookIcon size={32} round />
-                    </Link>
-                </span>
-                <span className='px-unit-xs'>
-                    <Link
-                        rel="noopener noreferrer"
-                        target='_blank'
-                        href={'http://instagram.com/nkr.jgr'}
-                    >
-                        <InstagramIcon size={32} round />
-                    </Link>
-                </span>
-            </div>
             <>
                 <hr />
                 <footer className='text-center py-unit-md' justify='center'>
-                    Made with 💖 in India
+                    <div className='text-center'>
+                        <span className='px-unit-xs'>
+                            <Link
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                href={'https://twitter.com/nkr_jgr'}>
+                                <TwitterIcon size={32} round />
+                            </Link>
+                            {/* </TwitterShareButton> */}
+                        </span>
+                        <span className='px-unit-xs'>
+                            <Link
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                href={'https://linkedin.com/in/nareshpahariya'}>
+                                <LinkedinIcon size={32} round />
+                            </Link>
+                        </span>
+                        <span className='px-unit-xs'>
+                            <Link
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                href={'mailto:mail@nareshpahariya.me'}>
+                                <EmailIcon size={32} round />
+                            </Link>
+                        </span>
+                        <span className='px-unit-xs'>
+                            <Link
+                                rel="noopener noreferrer"
+                                target='_blank'
+                                href={'http://facebook.com/nkr.jgr'}
+                            >
+                                <FacebookIcon size={32} round />
+                            </Link>
+                        </span>
+                        <span className='px-unit-xs'>
+                            <Link
+                                rel="noopener noreferrer"
+                                target='_blank'
+                                href={'http://instagram.com/nkr.jgr'}
+                            >
+                                <InstagramIcon size={32} round />
+                            </Link>
+                        </span>
+                    </div>
                 </footer>
             </>
-        </div >
+            <Script
+                defer
+                src='https://static.cloudflareinsights.com/beacon.min.js'
+                data-cf-beacon='{"token": "4c331686d171474d88f2d28b85f170e2", "spa": true}'
+            ></Script>
+        </div>
     );
 }
