@@ -26,13 +26,14 @@ const imageStyle = {
     'box-shadow': "0px 5px 10px 0px rgba(0, 0, 0, 0.5)"
 }
 
-const menuItems = [
-    "Dispatches",
-    "Insights",
-];
 
 export default function Layout({ children, home }) {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+    const menuItems = [
+        "Dispatches",
+        "Insights"
+    ];
 
     return (
         <div className={styles.container}>
@@ -80,16 +81,15 @@ export default function Layout({ children, home }) {
                 <NavbarContent className='full-flex sm:hidden' justify='end'>
                     <ThemeSwitcher />
                 </NavbarContent>
-                <NavbarMenu>
+                <NavbarMenu className='py-unit-10'>
                     {menuItems.map((item, index) => (
                         <NavbarMenuItem key={`${item}-${index}`}>
                             <Link
                                 color={
-                                    "primary"
-                                    // index === 0 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                                    "foreground" // === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
                                 }
                                 className="w-full"
-                                href="#"
+                                href={`${item.toLowerCase()}`}
                                 size="lg"
                             >
                                 {item}
