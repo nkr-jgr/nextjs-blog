@@ -35,12 +35,6 @@ const careerParagraphs = [
 ]
 
 const myQuotes = [
-  {
-    content: 'Part-time optimist, full-time admirer'
-  },
-  {
-    content: 'A tech-innovation enthusiast in software engineering'
-  }
 ]
 
 export async function getStaticProps() {

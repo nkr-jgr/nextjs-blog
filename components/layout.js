@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { Navbar, NavbarContent, NavbarMenuToggle, NavbarBrand, NavbarMenu, NavbarMenuItem, NavbarItem } from '@nextui-org/react';
 import { Avatar, Link } from '@nextui-org/react';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 
 import {
     LinkedinIcon,
@@ -25,7 +26,7 @@ export const siteTitle = 'Naresh Pahariya | Home';
 const imageStyle = {
     borderRadius: '50%',
     border: '1px dashed',
-    'box-shadow': "0px 5px 10px 0px rgba(0, 0, 0, 0.5)"
+    'boxShadow': "0px 5px 10px 0px rgba(0, 0, 0, 0.5)"
 }
 
 
@@ -181,6 +182,7 @@ export default function Layout({ children, home }) {
                 src='https://static.cloudflareinsights.com/beacon.min.js'
                 data-cf-beacon='{"token": "4c331686d171474d88f2d28b85f170e2", "spa": true}'
             ></Script>
+            <Analytics />
         </div>
     );
 }
