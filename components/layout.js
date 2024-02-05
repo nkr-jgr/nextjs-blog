@@ -63,7 +63,7 @@ export default function Layout({ children, home }) {
                         <Link href={home ? '#' : '/'}>
                             <Avatar
                                 isBordered
-                                src="/images/profilepic.jpg"
+                                src="/images/profile_mini.jpeg"
                             />
                         </Link>
                     </NavbarBrand>
