@@ -11,7 +11,12 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      textColor: {
+        light: "#333333", // Light mode text color
+        dark: "#FFFFFF", // Dark mode text color
+      },
+    },
   },
   darkMode: "class",
   plugins: [

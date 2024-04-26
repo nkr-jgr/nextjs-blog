@@ -6,9 +6,9 @@ import {ThemeProvider as NextThemesProvider} from "next-themes";
 export default function App({ Component, pageProps }) {
     return (
             <NextThemesProvider attribute="class" defaultTheme="dark">
-            {/* <div className='purple-dark text-foreground bg-background'> */}
+            <div className='purple-dark text-foreground bg-background'>
                 <Component {...pageProps} />
-            {/* </div> */}
+            </div>
             </NextThemesProvider>
     )
 }

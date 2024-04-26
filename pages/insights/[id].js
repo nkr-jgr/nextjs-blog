@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
+
 export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id);
     return {
@@ -33,7 +34,7 @@ export default function Post({ postData }) {
                 <div className={utilStyles.lightText}>
                     <Date dateString={postData.date} />
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+                <div className="markdown-content dark:text-dark" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </article>
         </Layout>
     );
