@@ -75,7 +75,7 @@ export default function Layout({ children, home }) {
                         </Link>
                     </NavbarItem>
                     <NavbarItem isActive={home ? false : true}>
-                        <Link color="foreground" href="insights">
+                        <Link color="foreground" href={`/insights`}>
                             Insights
                         </Link>
                     </NavbarItem>
