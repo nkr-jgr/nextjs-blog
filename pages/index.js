@@ -8,7 +8,6 @@ import Date from '../components/date';
 import React from 'react';
 import Carousel from '../components/Carousel.js';
 import AboutMeSection from '../components/AboutMeSection.jsx';
-import MyVideoPlayer from '../components/MyVideoPlayer.jsx';
 
 const items = [
   {
@@ -63,7 +62,6 @@ export default function Home({ allPostsData }) {
             🌱 Personally, I believe in growth that knows no limits, embracing challenges that help me surpass my own expectations.
           </li>
         </ui>
-        <MyVideoPlayer />
         <AboutMeSection
           title='Academics'
           paragraphs={educationalParagraphs}
